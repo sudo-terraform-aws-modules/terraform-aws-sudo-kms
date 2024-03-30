@@ -3,7 +3,7 @@ locals {
   partition  = data.aws_partition.current.partition
 
   # Add current user as key owner
-  key_owners = concat(data.aws_iam_session_context.current.issuer_arn, var.key_owners)
+  key_owners = concat([data.aws_iam_session_context.current.issuer_arn], var.key_owners)
 
 
   aliases = { for k, v in toset(var.aliases) : k => { name = v } }
