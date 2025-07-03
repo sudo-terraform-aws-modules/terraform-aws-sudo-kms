@@ -26,8 +26,8 @@ module "kms_key_basic" {
 }
 
 module "kms_key_complete" {
-  source = "../.."
-
+  source                  = "../.."
+  create                  = false
   deletion_window_in_days = 7
   description             = "Complete key example showing various configurations available"
   enable_key_rotation     = false
